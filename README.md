@@ -47,7 +47,7 @@ Built for **Cloud Computing Lab 11** — ASP.NET Core MVC with Entity Framework 
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/TwoFactorAuthApp.git
+git clone https://github.com/Khizar525/TwoFactorAuthApp.git
 cd TwoFactorAuthApp
 
 # Restore packages
@@ -133,6 +133,38 @@ TwoFactorAuthApp/
 ├── Program.cs                     # App entry point & DI
 └── appsettings.json               # Configuration
 ```
+
+---
+
+## Screenshots
+
+### Task 1: Google Authenticator 2FA
+
+| Register Page | Login Page |
+|:---:|:---:|
+| ![Register](wwwroot/screenshots/home-register.png) | ![Login](wwwroot/screenshots/home-login.png) |
+
+| QR Code & TOTP Verification | Dashboard (after 2FA) |
+|:---:|:---:|
+| ![QR Code](wwwroot/screenshots/google-auth-qr.png) | ![Dashboard](wwwroot/screenshots/home-dashboard.png) |
+
+| TOTP Error (wrong code) |
+|:---:|
+| ![Error](wwwroot/screenshots/google-auth-error.png) |
+
+### Task 2: Email-Based 2FA
+
+| Register Page | Login Page |
+|:---:|:---:|
+| ![Register](wwwroot/screenshots/account-register.png) | ![Login](wwwroot/screenshots/account-login.png) |
+
+| Email Code Verification | Dashboard (after 2FA) |
+|:---:|:---:|
+| ![Verify](wwwroot/screenshots/email-verify.png) | ![Dashboard](wwwroot/screenshots/account-dashboard.png) |
+
+| Console Output (mock mode) |
+|:---:|
+| ![Console](wwwroot/screenshots/email-console-output.png) |
 
 ---
 
