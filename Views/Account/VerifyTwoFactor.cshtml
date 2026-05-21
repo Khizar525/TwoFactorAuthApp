@@ -1,0 +1,75 @@
+@model Email2FAModel
+@{
+    ViewData["Title"] = "Email Verification";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-info text-white text-center py-4 rounded-top-4">
+                <h3 class="mb-0"><i class="bi bi-envelope-check-fill"></i> Email Verification</h3>
+            </div>
+            <div class="card-body p-4 text-center">
+
+                <div class="mb-3">
+                    <i class="bi bi-envelope-open" style="font-size: 3rem; color: #0dcaf0;"></i>
+                </div>
+
+                <h5 class="mb-3">Check Your Email</h5>
+                <p class="text-muted mb-3">
+                    A 6-digit verification code has been sent to
+                    <strong class="text-info">@(Context.Session.GetString("PendingEmail") ?? "your email")</strong>.
+                    The code expires in 5 minutes.
+                </p>
+
+                @if (!string.IsNullOrEmpty(ViewBag.DemoCode))
+                {
+                    <div class="alert alert-warning">
+                        <strong><i class="bi bi-info-circle"></i> Demo Mode:</strong>
+                        Since no real email service is configured, your verification code is:
+                        <div class="display-6 fw-bold text-dark my-2" style="letter-spacing: 8px;">
+                            @ViewBag.DemoCode
+                        </div>
+                        <small>In production, this code would be sent via email.</small>
+                    </div>
+                }
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <div class="alert alert-danger">@error.ErrorMessage</div>
+                    }
+                }
+
+                <hr />
+
+                <h5 class="mb-3">Enter Verification Code</h5>
+
+                <form asp-action="VerifyTwoFactor" method="post">
+                    <div class="mb-3">
+                        <input asp-for="Code" class="form-control text-center form-control-lg mx-auto"
+                               style="max-width: 200px; font-size: 1.5rem; letter-spacing: 6px;"
+                               placeholder="000000" maxlength="6" inputmode="numeric"
+                               pattern="[0-9]*" autocomplete="off" />
+                        <span asp-validation-for="Code" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-info text-white w-100 py-2 fw-bold">
+                        <i class="bi bi-check-circle"></i> Verify & Login
+                    </button>
+                </form>
+
+                <div class="mt-3">
+                    <a asp-action="Login" class="text-decoration-none small">
+                        <i class="bi bi-arrow-left"></i> Back to Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
