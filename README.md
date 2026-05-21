@@ -144,13 +144,9 @@ TwoFactorAuthApp/
 |:---:|:---:|
 | ![Register](wwwroot/screenshots/home-register.png) | ![Login](wwwroot/screenshots/home-login.png) |
 
-| QR Code & TOTP Verification | Dashboard (after 2FA) |
-|:---:|:---:|
-| ![QR Code](wwwroot/screenshots/google-auth-qr.png) | ![Dashboard](wwwroot/screenshots/home-dashboard.png) |
-
-| TOTP Error (wrong code) |
+| QR Code & TOTP Verification |
 |:---:|
-| ![Error](wwwroot/screenshots/google-auth-error.png) |
+| ![QR Code](wwwroot/screenshots/google-auth-qr.png) |
 
 ### Task 2: Email-Based 2FA
 
@@ -158,13 +154,11 @@ TwoFactorAuthApp/
 |:---:|:---:|
 | ![Register](wwwroot/screenshots/account-register.png) | ![Login](wwwroot/screenshots/account-login.png) |
 
-| Email Code Verification | Dashboard (after 2FA) |
-|:---:|:---:|
-| ![Verify](wwwroot/screenshots/email-verify.png) | ![Dashboard](wwwroot/screenshots/account-dashboard.png) |
-
-| Console Output (mock mode) |
+| Email Code Verification |
 |:---:|
-| ![Console](wwwroot/screenshots/email-console-output.png) |
+| ![Verify](wwwroot/screenshots/email-verify.png) |
+
+> **Note:** Dashboard and error-state screenshots are not available because Google Authenticator TOTP codes and real SMTP email delivery require a physical device / real credentials to complete the 2FA flow. Console mock-mode output was also not captured during this session.
 
 ---
 

@@ -17,6 +17,14 @@ wwwroot/lib/
 ## Secrets
 appsettings.*.local.json
 
+## OpenWork
+.opencode/
+
+## Lab artifacts
+cclab11.*
+cclab11_extracted/
+checklib.csx
+
 ## Node
 node_modules/
 
